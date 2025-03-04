@@ -1,9 +1,8 @@
 /*
- * Copyright (c) 2025. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
- * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
- * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
- * Vestibulum commodo. Ut rhoncus gravida arcu.
+ * Atif Pervaiz
+ * Github: https://github.com/AtifSayings
+ * Website: https://www.technifysoft.com/
+ * Playstore: https://play.google.com/store/apps/dev?id=9049012648188611488
  */
 
 package com.technifysoft.otpview
@@ -20,8 +19,6 @@ import android.text.TextWatcher
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.Gravity
-import android.view.View
-import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.LinearLayout
 import androidx.core.content.res.ResourcesCompat
