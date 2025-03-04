@@ -1,74 +1,78 @@
 # CustomOTPView
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.yourname/customotpview)](https://repo1.maven.org/maven2/com/yourname/customotpview/)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-
-CustomOTPView is a customizable OTP input field for Android, allowing users to input and verify OTP codes easily.
+CustomOTPView is an easy-to-use, customizable OTP input view for Android. It provides flexibility to change the background color, text size, spacing, stroke, and more.
 
 ## Features
 - Customizable OTP length
-- Supports numbers & text input types
-- Adjustable spacing, padding, and text size
-- Custom fonts & colors
-- Auto focus on next field
-- Backspace support to move to the previous field
+- Adjustable spacing between OTP fields
+- Custom fonts support
+- Supports different input types (numeric, alphanumeric, etc.)
+- Customizable text color, background color, and stroke
+- Rounded corners with adjustable radius
 
 ## Installation
 
-Add the following dependency in your **build.gradle.kts**:
+### Gradle
+Add the following dependency in your project's `build.gradle`:
 
-```kotlin
+```gradle
 dependencies {
-    implementation("com.yourname:customotpview:1.0.0")
+    implementation 'com.technifysoft:otpview:1.0.0'
 }
 ```
 
 ## Usage
-
-Add the **CustomOTPView** to your XML layout:
+Add `CustomOTPView` to your XML layout:
 
 ```xml
-<com.yourname.customotpview.CustomOTPView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:otp_otpLength="6"
-    app:otp_inputType="number"
-    app:otp_textSize="18sp"
-    app:otp_cornerRadius="10dp"
-    app:otp_spacingBetweenFields="12dp"
-    app:otp_backgroundColor="#FFFFFF"
-    app:otp_strokeColor="#000000"
-    app:otp_strokeWidth="2dp" />
+<com.technifysoft.otpview.OTPView
+        android:id="@+id/otpView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:ts_otp_backgroundColor="#E9E9E9"
+        app:ts_otp_cornerRadius="10dp"
+        app:ts_otp_fontFamily="@font/poppins_bold"
+        app:ts_otp_inputType="2"
+        app:ts_otp_otpLength="6"
+        app:ts_otp_padding="10dp"
+        app:ts_otp_spacingBetweenFields="10dp"
+        app:ts_otp_strokeColor="#908B8B"
+        app:ts_otp_strokeWidth="1dp"
+        app:ts_otp_textColor="#6F6F6F"
+        app:ts_otp_textSize="16sp" />
 ```
 
-### Get OTP Input
+### Handling OTP Input in Kotlin
 
 ```kotlin
-val otpCode = customOtpView.getOTP()
+val otpView = findViewById<OTPView>(R.id.otpView)
+
+val otp = otpView.getOTP()
 ```
 
 ## Customization
+You can customize the OTP view using the following attributes:
 
-| Attribute                | Description                              | Example Value |
-|--------------------------|------------------------------------------|--------------|
-| `otp_otpLength`         | Number of OTP fields                    | `6`          |
-| `otp_inputType`         | Input type (number, text)               | `number`     |
-| `otp_textSize`          | Text size of OTP fields                 | `18sp`       |
-| `otp_cornerRadius`      | Corner radius for OTP fields            | `10dp`       |
-| `otp_spacingBetweenFields` | Spacing between OTP fields            | `12dp`       |
-| `otp_backgroundColor`   | Background color of fields               | `#FFFFFF`    |
-| `otp_strokeColor`       | Border color of OTP fields              | `#000000`    |
-| `otp_strokeWidth`       | Border width                             | `2dp`        |
+| Attribute | Description |
+|-----------|-------------|
+| `ts_otp_otpLength` | Sets the OTP length (default: 6) |
+| `ts_otp_textSize` | Sets the text size of OTP fields |
+| `ts_otp_textColor` | Changes the text color of OTP fields |
+| `ts_otp_backgroundColor` | Sets the background color of OTP fields |
+| `ts_otp_spacingBetweenFields` | Defines the spacing between OTP fields |
+| `ts_otp_strokeColor` | Sets the border color |
+| `ts_otp_strokeWidth` | Adjusts the stroke width |
+| `ts_otp_cornerRadius` | Defines the corner radius for OTP fields |
+| `ts_otp_fontFamily` | Allows setting a custom font |
+| `ts_otp_inputType` | Defines input type (e.g., numeric, alphanumeric) |
 
 ## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contributing
-
-Feel free to open issues or submit pull requests to improve the library.
+MIT License. See [LICENSE](LICENSE) for details.
 
 ## Author
-**Your Name**  
-GitHub: [@yourusername](https://github.com/yourusername)
+Developed by **TechnifySoft**.
+
+## Contributing
+Pull requests are welcome! If you have any issues or feature requests, feel free to open an issue.
 
