@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="OTPView">
+        <attr name="ts_otp_otpLength" format="integer" />
+        <attr name="ts_otp_textColor" format="color" />
+        <attr name="ts_otp_backgroundColor" format="color" />
+        <attr name="ts_otp_cornerRadius" format="dimension" />
+        <attr name="ts_otp_strokeColor" format="color" />
+        <attr name="ts_otp_strokeWidth" format="dimension" />
+        <attr name="ts_otp_textSize" format="dimension" />
+        <attr name="ts_otp_fontFamily" format="reference" />
+        <attr name="ts_otp_spacingBetweenFields" format="dimension" />
+        <attr name="ts_otp_inputType" format="integer" />
+        <attr name="ts_otp_padding" format="dimension" />
+    </declare-styleable>
+</resources>
