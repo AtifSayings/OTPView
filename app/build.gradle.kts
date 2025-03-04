@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("maven-publish") // Add this at the top
 }
 
 android {
@@ -44,6 +45,8 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
 
     implementation(project(":OTPView"))
+
+    implementation("com.github.AtifSayings:OTPView:1.0.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
