@@ -17,6 +17,7 @@ Add the following dependency in your project's `build.gradle`:
 
 ```gradle
 dependencies {
+    //Will be availanle soon as following
     implementation 'com.technifysoft:otpview:1.0.0'
 }
 ```

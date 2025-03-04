@@ -19,6 +19,7 @@ import android.text.TextWatcher
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.Gravity
+import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.LinearLayout
 import androidx.core.content.res.ResourcesCompat
@@ -41,7 +42,7 @@ class OTPView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
-    private var numFields: Int = 4
+    private var numFields: Int = 6
     private var inputType: Int = InputType.TYPE_CLASS_NUMBER
     private var textSize: Float = 16f
     private var cornerRadius: Float = 8f
@@ -52,6 +53,8 @@ class OTPView @JvmOverloads constructor(
     private var padding: Int = 8 // Padding inside each field
     private var font: Typeface? = null
 
+    private var onOTPCompleteListener: ((String) -> Unit)? = null
+
     init {
         orientation = HORIZONTAL
         parseAttributes(context, attrs)
@@ -61,7 +64,7 @@ class OTPView @JvmOverloads constructor(
     private fun parseAttributes(context: Context, attrs: AttributeSet?) {
         attrs?.let {
             val typedArray = context.obtainStyledAttributes(it, R.styleable.OTPView)
-            numFields = typedArray.getInt(R.styleable.OTPView_ts_otp_otpLength, 4)
+            numFields = typedArray.getInt(R.styleable.OTPView_ts_otp_otpLength, 6)
             inputType = typedArray.getInt(R.styleable.OTPView_ts_otp_inputType, InputType.TYPE_CLASS_NUMBER)
             textSize = typedArray.getDimension(R.styleable.OTPView_ts_otp_textSize, 16f)
             cornerRadius = typedArray.getDimension(R.styleable.OTPView_ts_otp_cornerRadius, 8f)
@@ -91,19 +94,21 @@ class OTPView @JvmOverloads constructor(
             val editText = EditText(context).apply {
                 layoutParams = params
                 gravity = Gravity.CENTER
-                setPadding(padding, padding, padding, padding) // Ensure padding is applied
+                setPadding(padding, padding, padding, padding)
                 inputType = this@OTPView.inputType
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, this@OTPView.textSize)
-                background = null // Remove default background
+                background = null
                 background = createRoundedBackground()
                 typeface = font
                 filters = arrayOf(InputFilter.LengthFilter(1)) // Limit input to 1 character
+                imeOptions = if (i == numFields - 1) EditorInfo.IME_ACTION_DONE else EditorInfo.IME_ACTION_NEXT
             }
 
             editText.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(s: Editable?) {
                     if (s?.length == 1) {
                         focusNextField(i)
+                        checkOTPComplete()
                     } else if (s?.isEmpty() == true) {
                         focusPreviousField(i)
                     }
@@ -131,13 +136,22 @@ class OTPView @JvmOverloads constructor(
 
     private fun focusNextField(index: Int) {
         if (index < childCount - 1) {
-            getChildAt(index + 1).requestFocus()
+            val nextField = getChildAt(index + 1) as? EditText
+            nextField?.requestFocus()
         }
     }
 
     private fun focusPreviousField(index: Int) {
         if (index > 0) {
-            getChildAt(index - 1).requestFocus()
+            val prevField = getChildAt(index - 1) as? EditText
+            prevField?.requestFocus()
+        }
+    }
+
+    private fun checkOTPComplete() {
+        val otp = getOTP()
+        if (otp.length == numFields) {
+            onOTPCompleteListener?.invoke(otp)
         }
     }
 
@@ -148,5 +162,9 @@ class OTPView @JvmOverloads constructor(
             otp.append(editText?.text.toString())
         }
         return otp.toString()
+    }
+
+    fun setOnOTPCompleteListener(listener: (String) -> Unit) {
+        onOTPCompleteListener = listener
     }
 }

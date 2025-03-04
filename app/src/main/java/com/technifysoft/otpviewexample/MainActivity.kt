@@ -28,6 +28,10 @@ class MainActivity : AppCompatActivity() {
         val otpView = findViewById<OTPView>(R.id.otpView)
         val submitBtn = findViewById<MaterialButton>(R.id.submitBtn)
 
+        otpView.setOnOTPCompleteListener { otp ->
+            Toast.makeText(this, "OTP Completed: $otp", Toast.LENGTH_SHORT).show()
+        }
+
         submitBtn.setOnClickListener {
             // Get the OTP value
             val otp = otpView.getOTP()
