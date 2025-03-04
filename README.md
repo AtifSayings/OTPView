@@ -1,4 +1,4 @@
-# CustomOTPView
+# OTPView
 
 CustomOTPView is an easy-to-use, customizable OTP input view for Android. It provides flexibility to change the background color, text size, spacing, stroke, and more.
 
