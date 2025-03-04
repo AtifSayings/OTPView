@@ -63,18 +63,18 @@ otpView.setOnOTPCompleteListener { otp ->
 ## Customization
 You can customize the OTP view using the following attributes:
 
-| Attribute | Description |
-|-----------|-------------|
-| `ts_otp_otpLength` | Sets the OTP length (default: 6) |
-| `ts_otp_textSize` | Sets the text size of OTP fields |
-| `ts_otp_textColor` | Changes the text color of OTP fields |
-| `ts_otp_backgroundColor` | Sets the background color of OTP fields |
-| `ts_otp_spacingBetweenFields` | Defines the spacing between OTP fields |
-| `ts_otp_strokeColor` | Sets the border color |
-| `ts_otp_strokeWidth` | Adjusts the stroke width |
-| `ts_otp_cornerRadius` | Defines the corner radius for OTP fields |
-| `ts_otp_fontFamily` | Allows setting a custom font |
-| `ts_otp_inputType` | Defines input type (e.g., numeric, alphanumeric) |
+| Attribute | Description                                                                                                             |
+|-----------|-------------------------------------------------------------------------------------------------------------------------|
+| `ts_otp_otpLength` | Sets the OTP length (default: 6)                                                                                        |
+| `ts_otp_textSize` | Sets the text size of OTP fields                                                                                        |
+| `ts_otp_textColor` | Changes the text color of OTP fields                                                                                    |
+| `ts_otp_backgroundColor` | Sets the background color of OTP fields                                                                                 |
+| `ts_otp_spacingBetweenFields` | Defines the spacing between OTP fields                                                                                  |
+| `ts_otp_strokeColor` | Sets the border color                                                                                                   |
+| `ts_otp_strokeWidth` | Adjusts the stroke width                                                                                                |
+| `ts_otp_cornerRadius` | Defines the corner radius for OTP fields                                                                                |
+| `ts_otp_fontFamily` | Allows setting a custom font                                                                                            |
+| `ts_otp_inputType` | Defines input type (e.g., 1(text input), 2(number 0-9), 3(phone), 4(date-time), 129(text password) 18(number password)) |
 
 ## License
 MIT License. See [LICENSE](LICENSE) for details.

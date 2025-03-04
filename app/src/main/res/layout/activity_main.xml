@@ -10,8 +10,8 @@
 
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:adjustViewBounds="true"
         android:src="@drawable/shield_black"
         android:tint="?attr/colorPrimary" />
@@ -19,7 +19,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:text="Enter OTP"
         android:textSize="20sp" />
 
@@ -33,8 +33,8 @@
         app:ts_otp_fontFamily="@font/poppins_bold"
         app:ts_otp_inputType="2"
         app:ts_otp_otpLength="6"
-        app:ts_otp_padding="10dp"
-        app:ts_otp_spacingBetweenFields="10dp"
+        app:ts_otp_padding="8dp"
+        app:ts_otp_spacingBetweenFields="8dp"
         app:ts_otp_strokeColor="#908B8B"
         app:ts_otp_strokeWidth="1dp"
         app:ts_otp_textColor="#6F6F6F"
