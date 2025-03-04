@@ -49,7 +49,15 @@ Add `CustomOTPView` to your XML layout:
 ```kotlin
 val otpView = findViewById<OTPView>(R.id.otpView)
 
+//Manually get e.g. by clicking on a button
 val otp = otpView.getOTP()
+
+//OR
+
+//Otp completion listener
+otpView.setOnOTPCompleteListener { otp ->
+    Toast.makeText(this, "OTP Completed: $otp", Toast.LENGTH_SHORT).show()
+}
 ```
 
 ## Customization
